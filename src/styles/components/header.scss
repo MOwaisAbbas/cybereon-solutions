@@ -7,17 +7,90 @@ header {
     height: 100px;
     position: relative;
 
+    .nav-item-container {
+        position: relative;
+        margin: 0 0.5rem;
+
+        .nav-parent {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            position: relative;
+
+            .caret {
+                transition: rotate 0.3s ease;
+                color: white;
+            }
+
+            &.active .caret {
+                transform: rotate(-180deg);
+            }
+        }
+
+        .dropdown {
+            scale: 0;
+            position: absolute;
+            top: 100%;
+            left: -50%;
+            background: darken($primary, 5%);
+            padding: 1rem;
+            border-radius: 4px;
+            min-width: 250px;
+            z-index: 100;
+            transition: all 0.5s;
+            transform-origin: top;
+
+            a {
+                display: block;
+                padding: 0.5rem;
+                margin: 0.25rem 0;
+                color: white;
+                position: relative;
+                font-size: 12px;
+                font-weight: 400;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: $gradient-p;
+                    transition: width 0.3s ease;
+                }
+
+                &:hover,
+                &.active {
+                    &::before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &.open {
+                scale: 1;
+            }
+        }
+
+        &:hover .dropdown {
+            @media (min-width: 768px) {
+                display: block;
+            }
+        }
+    }
+
     nav {
+
+        span,
         a {
             font-family: var(--font-montserrat);
             font-weight: bold;
-            margin: 0 0.5rem;
             padding: 0.5rem;
             color: white;
             cursor: pointer;
             position: relative;
             width: fit-content;
-
 
             &::before {
                 content: '';
@@ -34,6 +107,7 @@ header {
                 transform-origin: left;
             }
 
+            &.active,
             &:hover {
                 text-shadow: #fff 0.2px 0.2px 1px;
 
@@ -57,6 +131,28 @@ header {
             display: flex;
             z-index: 1000;
 
+            .nav-item-container {
+                margin: 0.5rem 0;
+                width: 100%;
+
+                .nav-parent {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+
+                .dropdown {
+                    position: static;
+                    background: transparent;
+                    padding: 0;
+                    margin-left: 1rem;
+                    display: none;
+
+                    &.open {
+                        display: block;
+                    }
+                }
+            }
+
             &.open {
                 transform: translateX(0);
             }
@@ -66,6 +162,7 @@ header {
                 top: 1rem;
                 right: 1rem;
                 color: white;
+                padding: 0.2rem;
             }
         }
 
@@ -88,9 +185,14 @@ header {
     >button {
         z-index: 1001;
         color: white;
+        padding: 0.2rem;
 
         @media (min-width: 768px) {
             display: none;
         }
+    }
+
+    @media (max-width: 768px) {
+        padding: 0 1.5rem;
     }
 }

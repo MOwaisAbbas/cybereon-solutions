@@ -1,0 +1,96 @@
+header {
+    background-color: $primary;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 100px;
+    position: relative;
+
+    nav {
+        a {
+            font-family: var(--font-montserrat);
+            font-weight: bold;
+            margin: 0 0.5rem;
+            padding: 0.5rem;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            width: fit-content;
+
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                height: 5px;
+                width: 100%;
+                border-radius: 100px;
+                background: $gradient-p;
+                transform: scaleX(0);
+                transition: 0.5s;
+                transform-origin: left;
+            }
+
+            &:hover {
+                text-shadow: #fff 0.2px 0.2px 1px;
+
+                &::before {
+                    transform: scaleX(100%);
+                }
+            }
+        }
+
+        @media (max-width: 767px) {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: $primary;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            flex-direction: column;
+            padding: 2rem;
+            display: flex;
+            z-index: 1000;
+
+            &.open {
+                transform: translateX(0);
+            }
+
+            button {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                color: white;
+            }
+        }
+
+        @media (min-width: 768px) {
+            display: flex;
+            position: static;
+            transform: none;
+            width: auto;
+            height: auto;
+            padding: 0;
+            background-color: transparent;
+            flex-direction: row;
+
+            button {
+                display: none;
+            }
+        }
+    }
+
+    >button {
+        z-index: 1001;
+        color: white;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+}

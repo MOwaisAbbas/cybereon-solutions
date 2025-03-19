@@ -2,12 +2,20 @@ import Header from "@/components/Header";
 import "@/styles/index.scss";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
+import Footer from "../components/Footer";
 import "./globals.css";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
 });
+
+const conthrax = localFont({
+  src: "../../public/fonts/conthrax-sb.ttf",
+  variable: "--font-conthrax",
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,9 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable}  antialiased`}>
+      <body className={`${montserrat.variable} ${conthrax.variable}  antialiased`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

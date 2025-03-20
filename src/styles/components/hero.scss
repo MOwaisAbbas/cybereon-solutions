@@ -1,0 +1,80 @@
+.hero-sec {
+
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+
+margin-top: 100px;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+
+    .content-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            font-family: var(--font-conthrax);
+            font-size: max(26px, 3vw);
+
+            .highlight {
+                background: $gradient-p;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        p {
+            margin-top: 2rem;
+            font-family: var(--font-montserrat);
+            font-size: max(16px, 1.5vw);
+            font-weight: 500;
+        }
+
+        .btn-grp {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            button {
+                font-family: var(--font-montserrat);
+                border-radius: 100px;
+                padding: 0.25rem 1.5rem;
+                border: 3px solid $primary-text;
+                font-size: 16px;
+                font-weight: 600;
+                outline: none;
+                cursor: pointer;
+                transition: all 0.5s;
+                
+                
+                &.active {
+                    background: $gradient-p;
+                }
+
+                &:hover{
+                    scale: 1.1;
+                }
+            }
+        }
+    }
+
+    div.img-box {
+        display: grid;
+        place-items: center;
+
+        img {
+            max-width: 350px;
+            width: 80%;
+            height: auto;
+            animation: 5s Infinite ease-out floating2;
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+}

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RxCaretDown, RxCross1, RxHamburgerMenu } from "react-icons/rx";
 
 type NavItem = {
@@ -64,8 +64,9 @@ const navItems: NavItem[] = [
 
 
 const Header: React.FC = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const pathname = usePathname();
 
   const handleDrawerToggle = () => {
@@ -81,8 +82,37 @@ const Header: React.FC = () => {
     setOpenDropdown(openDropdown === itemPath ? null : itemPath);
   };
 
+  useEffect(() => {
+    if (isNavOpen) {
+      // Disable body scrolling when the box is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Enable body scrolling when the box is closed
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      // Cleanup: enable body scrolling on component unmount
+      document.body.style.overflow = 'auto';
+    };
+  }, [isNavOpen]);
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 130) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header>
+     <header className={`${isScrolled ? "scrolled" : ""}   `}>
       <Image
         src="/logo.webp"
         alt="Cybereon Solutions"

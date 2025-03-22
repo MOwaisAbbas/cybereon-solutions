@@ -61,6 +61,7 @@ footer {
             gap: 0.5rem;
 
             .box {
+                cursor: pointer;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -70,6 +71,11 @@ footer {
                 background-color: $secondary;
                 box-shadow: $tertiary 5px 5px;
                 color: $primary-text;
+                transition: all 0.5s;
+
+                &:hover{
+                    transform: translateY(-10px);
+                }
             }
 
         }

@@ -4,8 +4,10 @@
 // global
 @import "./global.scss";
 
+// Views
+@import "./views/hero.scss";
+@import "./views/services.scss";
 
 // components
 @import "./components/header.scss";
 @import "./components/footer.scss";
-@import "./components/hero.scss";

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import { FaFacebookF, FaFile } from 'react-icons/fa';
 
 
 type Service = {
@@ -54,7 +53,7 @@ const Services = () => {
     return (
         <section className='services'>
             <h2>OUR SERVICES</h2>
-            <p className='text-justify md:text-center'>At CyberEon Solutions UG, we specialize in protecting your digital environment through practical and proven cybersecurity services. Whether you're a startup or an established enterprise, we offer strategic solutions that secure your data, systems, and reputation.</p>
+            <p className='text-justify md:text-center'>At CyberEon Solutions UG, we specialize in protecting your digital environment through practical and proven cybersecurity services. Whether you&apos;re a startup or an established enterprise, we offer strategic solutions that secure your data, systems, and reputation.</p>
 
             <div className='service-cards'>
                 {services.map((service , index) => (

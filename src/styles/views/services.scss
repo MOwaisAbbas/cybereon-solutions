@@ -1,0 +1,128 @@
+section.services {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $primary-text;
+
+    >h2 {
+        font-family: var(--font-conthrax);
+        font-size: max(26px, 3vw);
+        color: $primary;
+    }
+
+    >p {
+        font-family: var(--font-montserrat);
+        font-size: max(16px, 1.2vw);
+        color: $secondary;
+        font-weight: bold;
+        max-width: 80%;
+
+    }
+
+    .service-cards {
+        margin: 1rem 0;
+        display: grid;
+        width: 80%;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+
+
+        .card {
+            cursor: pointer;
+            border: 5px solid $primary;
+            border-radius: 30px;
+            padding: 1rem;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+
+            &:before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                bottom: -16px;
+                right: -16px;
+                background: $secondary;
+                height: 32px;
+                width: 32px;
+                border-radius: 32px;
+                transform: scale(0);
+                transform-origin: 50% 50%;
+                transition: transform 0.5s ease-out;
+            }
+
+
+
+            >.box {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 70px;
+                height: 70px;
+                border-radius: 35px;
+                background-color: $secondary;
+                box-shadow: $tertiary 5px 5px;
+                color: $primary-text;
+
+            }
+
+            >h2 {
+                font-family: var(--font-conthrax);
+                font-size: max(22px, 1.2vw);
+                color: $primary;
+                margin: 0.5rem 0;
+                transition: all 0.5s;
+            }
+            
+            >p {
+                transition: all 0.5s;
+                font-family: var(--font-montserrat);
+                font-size: max(14px, 0.9vw);
+                color: $primary;
+                font-weight: bold;
+
+            }
+
+
+            &:hover {
+
+                >h2,>p {
+                    color: $primary-text;
+                }
+                &:before {
+                    transform: scale(35);
+                }
+            }
+        }
+
+
+    }
+
+    @media (max-width: 1024px) {
+        .service-cards {
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        >p {
+            max-width: 100%;
+        }
+
+        .card {
+            max-width: 350px;
+        }
+
+        .service-cards {
+            width: 100%;
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+}

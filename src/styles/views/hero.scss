@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1fr 0.75fr;
 
-margin-top: 100px;
+    margin-top: 100px;
     width: 100%;
     min-height: calc(100vh - 100px);
 
@@ -47,13 +47,13 @@ margin-top: 100px;
                 outline: none;
                 cursor: pointer;
                 transition: all 0.5s;
-                
-                
+
+
                 &.active {
                     background: $gradient-p;
                 }
 
-                &:hover{
+                &:hover {
                     scale: 1.1;
                 }
             }
@@ -65,8 +65,7 @@ margin-top: 100px;
         place-items: center;
 
         img {
-            max-width: 350px;
-            width: 80%;
+            width: 70%;
             height: auto;
             animation: 5s Infinite ease-out floating2;
         }
@@ -75,6 +74,13 @@ margin-top: 100px;
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
         gap: 2rem;
+
+        div.img-box {
+
+            img {
+                max-width: 350px;
+            }
+        }
     }
 
 }

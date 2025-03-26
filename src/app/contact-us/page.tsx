@@ -1,7 +1,13 @@
+import NewsLetter from "@/components/NewsLetter"
+import Wrapper from "@/components/Wrapper"
+import ContactUsForm from "@/views/ContactUs"
 
 const ContactUs = () => {
     return (
-        <div>ContactUs</div>
+        <Wrapper>
+            <ContactUsForm />
+            <NewsLetter />
+        </Wrapper>
     )
 }
 

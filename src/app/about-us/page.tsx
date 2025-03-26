@@ -1,7 +1,10 @@
+import Wrapper from "@/components/Wrapper"
 
 const AboutUS = () => {
     return (
-        <div>AboutUS</div>
+        <Wrapper>
+            <div>AboutUS</div>
+        </Wrapper>
     )
 }
 

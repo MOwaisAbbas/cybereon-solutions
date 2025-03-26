@@ -1,0 +1,51 @@
+section.news-letter {
+
+    h2 {
+        font-family: var(--font-montserret);
+        color: $secondary;
+        font-weight: 500;
+        font-size: max(16px, 2vw);
+        text-align: center;
+
+    }
+
+    .subscribe-container {
+        display: flex;
+        align-items: center;
+        border: 2px solid $secondary;
+        border-radius: 30px;
+        overflow: hidden;
+        max-width: 400px;
+        margin: 1rem auto;
+
+        .subscribe-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+
+            &::placeholder {
+                color: $primary-text;
+            }
+        }
+
+        .subscribe-button {
+            background-color: $secondary;
+            color: $primary-text;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .subscribe-button:hover {
+            background-color: darken($secondary, 5%);
+        }
+    }
+
+
+
+
+}

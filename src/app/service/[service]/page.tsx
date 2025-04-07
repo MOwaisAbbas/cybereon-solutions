@@ -1,14 +1,17 @@
 "use client"
+import NewsLetter from "@/components/NewsLetter";
 import Wrapper from "@/components/Wrapper";
-import { useParams } from "next/navigation";
 
 const Service = () => {
-    const params = useParams()
+    // const params = useParams()
 
     return (
         <Wrapper>
 
-            <div>Service - {params?.service}</div>
+            <section className="min-h-[50vh] grid place-items-center">
+                <p className="text-4xl text-center font-bold ">Services not added yet!</p>
+            </section>
+            <NewsLetter />
         </Wrapper>
     );
 };

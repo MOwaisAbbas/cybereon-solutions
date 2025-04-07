@@ -82,20 +82,20 @@ const Header: React.FC = () => {
     setOpenDropdown(openDropdown === itemPath ? null : itemPath);
   };
 
-  useEffect(() => {
-    if (isNavOpen) {
-      // Disable body scrolling when the box is open
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Enable body scrolling when the box is closed
-      document.body.style.overflow = 'auto';
-    }
+  // useEffect(() => {
+  //   if (isNavOpen) {
+  //     // Disable body scrolling when the box is open
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     // Enable body scrolling when the box is closed
+  //     document.body.style.overflow = 'auto';
+  //   }
 
-    return () => {
-      // Cleanup: enable body scrolling on component unmount
-      document.body.style.overflow = 'auto';
-    };
-  }, [isNavOpen]);
+  //   return () => {
+  //     // Cleanup: enable body scrolling on component unmount
+  //     document.body.style.overflow = 'auto';
+  //   };
+  // }, [isNavOpen]);
 
 
   useEffect(() => {
@@ -112,7 +112,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-     <header className={`${isScrolled ? "scrolled" : ""}   `}>
+    <header className={`${isScrolled ? "scrolled" : ""}   `}>
       <Image
         src="/logo.webp"
         alt="Cybereon Solutions"

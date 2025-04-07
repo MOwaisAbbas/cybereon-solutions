@@ -13,8 +13,8 @@ header {
     transition: position 0.5s;
     box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px;
 
-    &.scrolled{
-        animation: headerAnimation 0.5s  ;
+    &.scrolled {
+        animation: headerAnimation 0.5s;
         position: fixed;
         background-color: $primary;
     }
@@ -40,7 +40,8 @@ header {
         }
 
         .dropdown {
-            scale: 0;
+            // scale: 0;
+            transform: scale(0);
             position: absolute;
             top: 100%;
             left: -50%;
@@ -81,7 +82,8 @@ header {
             }
 
             &.open {
-                scale: 1;
+                // scale: 1;
+                transform: scale(1);
             }
         }
 
@@ -212,9 +214,10 @@ header {
         0% {
             transform: translateY(-100%);
         }
-        100%{
+
+        100% {
             transform: translateY(0%);
 
-        }        
+        }
     }
 }

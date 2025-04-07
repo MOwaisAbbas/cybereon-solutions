@@ -1,0 +1,59 @@
+section.Missin-Vission-sec {
+    display: flex;
+    width: 100%;
+
+    .content-box {
+
+        >h2 {
+            font-family: var(--font-conthrax);
+            font-size: max(28px, 3vw);
+            font-weight: bold;
+            color: $secondary;
+            text-transform: uppercase;
+        }
+
+        >p {
+            text-transform: uppercase;
+            // margin-top: 1rem;
+            font-family: var(--font-montserrat);
+            font-size: max(16px, 1.5vw);
+            font-weight: 500;
+
+        }
+
+
+
+    }
+
+    div.img-box {
+        width: 35%;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+
+        img {
+            width: 90%;
+            height: auto;
+            animation: 5s Infinite ease-out floating2;
+        }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+        gap: 2rem;
+
+
+        div.content-box .points {
+            grid-template-columns: 1fr;
+        }
+
+        div.img-box {
+            width: 100%;
+
+            img {
+                max-width: 400px;
+            }
+        }
+
+    }
+}

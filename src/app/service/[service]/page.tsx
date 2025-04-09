@@ -5,9 +5,7 @@ import Wrapper from "@/components/Wrapper";
 import SERVICES from "@/data/services.json";
 import ContactUsForm from "@/views/ContactUs";
 import ServiceIntro from "@/views/ServiceIntro";
-import { Metadata } from "next";
 
-// Service data type
 export interface ServiceData {
     name: string;
     path: string;
@@ -21,13 +19,12 @@ export interface ServiceData {
     cta: string;
 }
 
-
+// Corrected ServiceProps with specific params type
 type ServiceProps = {
-    params: { [key: string]: string }
+    params: { service: string }; // Changed to specific key
 }
 
-// Generate dynamic metadata
-export async function generateMetadata({ params }: ServiceProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ServiceProps) {
     const service: ServiceData | undefined = SERVICES.find(elem => elem.path === `/service/${params.service}`);
 
     return {
@@ -54,10 +51,9 @@ const Service = ({ params }: ServiceProps) => {
 
     return (
         <Wrapper>
-
-            <ServiceIntro name={service?.name} subHeading={service?.subHeading} description={service?.description} />
+            <ServiceIntro name={service.name} subHeading={service.subHeading} description={service.description} />
             <ServiceComponent service={service} />
-            <CTA outcome={service?.outcome} cta={service?.cta} />
+            <CTA outcome={service.outcome} cta={service.cta} />
             <ContactUsForm />
             <NewsLetter />
         </Wrapper>

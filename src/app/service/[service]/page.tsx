@@ -22,7 +22,9 @@ export interface ServiceData {
 }
 
 
-type ServiceProps = { params: { service: string } }
+type ServiceProps = {
+    params: { [key: string]: string }
+}
 
 // Generate dynamic metadata
 export async function generateMetadata({ params }: ServiceProps): Promise<Metadata> {

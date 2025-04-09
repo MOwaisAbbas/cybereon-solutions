@@ -1,0 +1,190 @@
+[
+    {
+        "name": "Cybersecurity Strategy & Advisory",
+        "path": "/service/cybersecurity-strategy",
+        "subHeading": "Turn cybersecurity into a business enabler — with structure, governance, and future-ready planning.",
+        "description": "At CyberEon Solutions, our Strategy & Advisory services help organizations build mature, business-aligned cybersecurity programs rooted in risk, governance, and regulatory accountability. Whether you're establishing a new program, aligning with a framework like ISO 27001 or SOC 2, or addressing new compliance obligations such as NIS2 or DORA — we bring structure, clarity, and direction to your cybersecurity journey.",
+        "features": [
+            {
+                "title": "Cybersecurity Risk Assessments",
+                "detail": "Identify, analyze, and prioritize risks across systems and processes to support informed decisions and reporting."
+            },
+            {
+                "title": "Cybersecurity Strategy Development",
+                "detail": "Tailored cybersecurity strategy aligned with business goals, industry threats, and compliance needs."
+            },
+            {
+                "title": "Security Policies, Processes, Guidelines & Standards",
+                "detail": "Develop or refine security documentation in line with best practices and regulatory frameworks."
+            },
+            {
+                "title": "Regulatory Framework Implementation & Readiness",
+                "detail": "Support for ISO 27001, SOC 2, NIS2, DORA — including gap assessments, implementations, and audits."
+            },
+            {
+                "title": "Business-Aligned Security Architecture (SABSA)",
+                "detail": "Design layered, traceable security architecture using SABSA — aligned with business objectives and risks."
+            },
+            {
+                "title": "Security Governance & Operating Models",
+                "detail": "Establish governance structures, RACI models, and reporting to enable executive oversight."
+            },
+            {
+                "title": "Security Roadmaps & Program Planning",
+                "detail": "Actionable roadmaps linked to maturity goals, priorities, and resource availability."
+            }
+        ],
+        "outcome": "A structured, risk-driven cybersecurity foundation that supports compliance, simplifies complexity, and connects security to strategic outcomes.",
+        "cta": "Looking to build a strong cybersecurity foundation? Let’s discuss how CyberEon Solutions can help you develop effective strategies and governance."
+    },
+    {
+        "name": "Cybersecurity Assurance & Testing",
+        "path": "/service/cybersecurity-assurance",
+        "subHeading": "Validate, test, and strengthen your defenses — before attackers do.",
+        "description": "Our Assurance & Testing services help organizations gain clear visibility into the effectiveness of their security controls and technical posture. Through structured audits, penetration testing, and control validations, we uncover risks, reduce uncertainty, and provide actionable recommendations to close gaps before they’re exploited.",
+        "features": [
+            {
+                "title": "Security Audits & Maturity Assessments",
+                "detail": "Evaluate controls using ISO 27001, NIST CSF, CIS Controls, and internal standards — with prioritized recommendations."
+            },
+            {
+                "title": "Internal & External Penetration Testing",
+                "detail": "Certified ethical hackers simulate real-world attacks across networks, apps, cloud, APIs, and endpoints."
+            },
+            {
+                "title": "Vulnerability Assessments & Management",
+                "detail": "Automated/manual scanning, prioritization, and remediation tracking for identified vulnerabilities."
+            },
+            {
+                "title": "Security Control Effectiveness Reviews",
+                "detail": "Validate controls like endpoint protection, logging, access management, and change control."
+            },
+            {
+                "title": "Remediation Planning & Risk Communication",
+                "detail": "Support to plan and communicate issue resolution aligned with business goals and constraints."
+            }
+        ],
+        "outcome": "A clearer view of your security weaknesses — and a prioritized plan to fix them before they’re exploited.",
+        "cta": "Ready to identify and close your security gaps before attackers do? Let’s discuss how CyberEon Solutions can help you validate, test, and strengthen your defenses."
+    },
+    {
+        "name": "Business Continuity & Resilience",
+        "path": "/service/business-continuity",
+        "subHeading": "Prepare for the unexpected. Recover with confidence.",
+        "description": "In today’s interconnected world, business continuity is not optional — it’s essential. At CyberEon Solutions, we help organizations build robust, risk-based Business Continuity Management Systems (BCMS) that ensure operational resilience in the face of cyberattacks, outages, supply chain failures, and other disruptions. Whether you're seeking alignment with ISO 22301, responding to regulatory demands, or simply future-proofing your business, we guide you from strategy to execution.",
+        "features": [
+            {
+                "title": "Business Impact Analysis (BIA)",
+                "detail": "Identify critical processes and define RTOs/RPOs to prioritize continuity efforts."
+            },
+            {
+                "title": "Risk & Threat Assessment for Business Continuity",
+                "detail": "Evaluate threats like ransomware, outages, and knowledge loss that could disrupt operations."
+            },
+            {
+                "title": "BCMS Design & Implementation (ISO 22301 Aligned)",
+                "detail": "Develop continuity plans, roles, and documents tailored to your risk and compliance context."
+            },
+            {
+                "title": "Disaster Recovery (DR) Planning",
+                "detail": "Plan for technical recovery of systems, applications, and cloud services."
+            },
+            {
+                "title": "Scenario-Based Tabletop Exercises",
+                "detail": "Test continuity plans through executive simulations to uncover and address readiness gaps."
+            },
+            {
+                "title": "Crisis Communication Planning",
+                "detail": "Create internal/external messaging templates and escalation processes for crisis situations."
+            }
+        ],
+        "outcome": "A tested, documented capability to withstand and recover from business disruptions — minimizing downtime and reputational damage.",
+        "cta": "Concerned about your organization’s ability to recover from disruptions? Let’s discuss how CyberEon Solutions can help you build and test a resilient, ISO 22301-aligned continuity framework."
+    },
+    {
+        "name": "Data Protection and Compliance",
+        "path": "/service/data-protection",
+        "subHeading": "Build trust through compliance. Safeguard what matters most.",
+        "description": "With global data privacy regulations tightening and customer expectations rising, organizations need to demonstrate accountability and control over personal and sensitive data. At CyberEon Solutions, we help you navigate complex regulatory landscapes and embed data protection into the fabric of your operations. From GDPR alignment to privacy-by-design integration, we provide practical, risk-based solutions that strengthen compliance and enhance customer trust.",
+        "features": [
+            {
+                "title": "GDPR Readiness Assessments & Gap Analysis",
+                "detail": "Analyze your current state and build a plan for GDPR alignment."
+            },
+            {
+                "title": "Data Mapping & Inventory",
+                "detail": "Document data flows across systems and vendors to enable lifecycle management."
+            },
+            {
+                "title": "Data Protection Impact Assessments (DPIAs)",
+                "detail": "Evaluate high-risk processing activities with structured DPIAs and risk mitigation."
+            },
+            {
+                "title": "Privacy Policies & Governance Frameworks",
+                "detail": "Create or enhance policies, subject rights procedures, retention schedules, and contracts."
+            }
+        ],
+        "outcome": "Demonstrable privacy compliance, reduced regulatory exposure, and improved data governance.",
+        "cta": "Facing complex regulatory requirements or GDPR concerns? Let’s discuss how CyberEon Solutions can help you navigate compliance and build trust through responsible data governance."
+    },
+    {
+        "name": "Security Awareness & Culture",
+        "path": "/service/security-awareness",
+        "subHeading": "Empower your workforce. Reduce human risk.",
+        "description": "Cybersecurity isn't just about tools — it's about people. Human error remains one of the top causes of data breaches, making security awareness a critical pillar of any risk management strategy. We help you embed a culture of security through engaging, role-specific education that turns employees into your first line of defense.",
+        "features": [
+            {
+                "title": "Tailored Security Awareness Programs",
+                "detail": "Customized training based on industry, threats, and employee roles."
+            },
+            {
+                "title": "Phishing Simulations & Behavior Monitoring",
+                "detail": "Real-world campaigns that test employee readiness and uncover social engineering risks."
+            },
+            {
+                "title": "Executive & Board-Level Briefings",
+                "detail": "Leadership-focused sessions to clarify governance roles and risk responsibilities."
+            },
+            {
+                "title": "ISO 27001-Aligned Training Modules",
+                "detail": "Compliance-driven modules aligned with Annex A controls and audit requirements."
+            },
+            {
+                "title": "Gamified & Interactive Learning",
+                "detail": "Use of quizzes, storytelling, and videos to boost retention and engagement."
+            }
+        ],
+        "outcome": "A well-informed, vigilant workforce equipped to recognize and respond to cyber threats.",
+        "cta": "Want to strengthen your human firewall and reduce insider risks? Let’s discuss how CyberEon Solutions can help you cultivate a strong security culture through tailored awareness programs."
+    },
+    {
+        "name": "Virtual CISO & Security Resourcing",
+        "path": "/service/virtual-ciso",
+        "subHeading": "Security leadership and expertise — on demand.",
+        "description": "For many organizations, building an internal cybersecurity leadership team is costly and time-consuming. Our Virtual CISO (vCISO) and Security Resourcing services give you access to experienced professionals who can lead, support, or supplement your security operations based on your needs and budget. Whether you're responding to a critical incident, pursuing compliance, or scaling your security function, we provide the right talent — at the right time.",
+        "features": [
+            {
+                "title": "Virtual CISO (vCISO) Services",
+                "detail": "Part-time or interim leadership to guide strategy, manage risks, and interface with executive teams and regulators."
+            },
+            {
+                "title": "Security Program Leadership",
+                "detail": "Oversight of security programs including governance, policy implementation, risk tracking, and performance reporting."
+            },
+            {
+                "title": "Security Team Augmentation",
+                "detail": "Access to skilled professionals such as analysts, architects, compliance officers, and project managers — when and where needed."
+            },
+            {
+                "title": "Audit & Compliance Support",
+                "detail": "Support for audits including evidence preparation, documentation management, and remediation tracking."
+            },
+            {
+                "title": "Flexible Engagement Models",
+                "detail": "Choose from short-term, long-term, or project-based resourcing tailored to your unique requirements."
+            }
+        ],
+        "outcome": "Strategic leadership and operational capacity without long-term headcount — enabling agility, compliance, and continuity.",
+        "cta": "Looking for cybersecurity leadership or trusted hands-on support? Let’s discuss how CyberEon Solutions can support your needs with agility and professionalism."
+    }
+]

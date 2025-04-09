@@ -97,7 +97,7 @@ const Footer = () => {
                     <div className="box"><FaLinkedin size={30} /></div>
                     <div className="box"><FaPinterestP size={30} /></div>
                 </div>
-                <p>Copyright © {(new Date()).getFullYear()} Cybereon Solutions. All Rights Reserved.</p>
+                <p>Copyright © {(new Date()).getFullYear()} <Link href="#">Cybereon Solutions</Link>. All Rights Reserved.</p>
             </div>
         </footer>
     )

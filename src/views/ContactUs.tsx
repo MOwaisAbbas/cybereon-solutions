@@ -4,7 +4,7 @@ import { FaEnvelope, FaUser } from "react-icons/fa"
 
 const ContactUsForm = () => {
     return (
-        <section className="contact-us">
+        <section className="contact-us" id="contact-us">
             <div className='img-box'>
                 <Image
                     src="/ContactUs.svg"

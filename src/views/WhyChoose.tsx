@@ -1,3 +1,5 @@
+"use client"
+import { goToSection } from '@/lib/function';
 import Image from 'next/image';
 
 
@@ -82,7 +84,7 @@ const WhyChoose = () => {
                 </div>
 
                 <div className="btn-grp">
-                    <button>
+                    <button onClick={() => goToSection('contact-us')}>
                         Get in Touch
                     </button>
                     <button className='active'>

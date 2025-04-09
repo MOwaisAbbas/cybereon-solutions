@@ -1,3 +1,5 @@
+"use client"
+import { goToSection } from "@/lib/function"
 import Image from "next/image"
 
 const AboutUSView = () => {
@@ -17,10 +19,10 @@ const AboutUSView = () => {
 
                 </p>
                 <div className="btn-grp">
-                    <button>
+                    <button onClick={() => goToSection('services')}>
                         Learn More
                     </button>
-                    <button className='active'>
+                    <button onClick={() => goToSection('contact-us')} className='active'>
                         Get In Touch
                     </button>
                 </div>

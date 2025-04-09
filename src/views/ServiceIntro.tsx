@@ -1,18 +1,23 @@
 "use client"
-import { goToSection } from '@/lib/function'
-import Image from 'next/image'
+import { goToSection } from "@/lib/function";
+import Image from "next/image";
 
-const Hero = () => {
+type ServiceIntroProps = {
+    name: string;
+    subHeading: string;
+    description: string;
+}
+
+const ServiceIntro = ({ name, subHeading, description }: ServiceIntroProps) => {
     return (
-        <section className='hero-sec'>
+        <section className='about-sec'>
             <div className='content-box'>
-                <h1>Securing the <span className='highlight'>Eon</span><br /> of Innovation</h1>
-                <p>CyberEon Solutions UG is your trusted cybersecurity partner—helping businesses thrive securely in a digital-first world.
+                <p>{name}</p>
+                <h2>{subHeading}</h2>
+                <p className="desc">
+                    {description}
                 </p>
                 <div className="btn-grp">
-                    <button onClick={() => goToSection('services')}>
-                        Learn More
-                    </button>
                     <button onClick={() => goToSection('contact-us')} className='active'>
                         Get In Touch
                     </button>
@@ -20,7 +25,7 @@ const Hero = () => {
             </div>
             <div className='img-box'>
                 <Image
-                    src="/icon.svg"
+                    src="/ServiceIcon.svg"
                     alt='Cybereon Solutions'
                     width={100}
                     height={100}
@@ -30,4 +35,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default ServiceIntro

@@ -8,7 +8,7 @@ const ContactIntro = () => {
             <div className='content-box'>
                 <p>Meet the Challenges With Our Experts</p>
                 <p className="desc">
-                    At <span className="highlight">CyberEon Solutions</span>, we understand that navigating cybersecurity, compliance, and resilience can be daunting. Whether you're facing evolving threats, stringent regulations, or operational disruptions, our team of certified experts is here to guide you.
+                    At <span className="highlight">CyberEon Solutions</span>, we understand that navigating cybersecurity, compliance, and resilience can be daunting. Whether you&apos;re facing evolving threats, stringent regulations, or operational disruptions, our team of certified experts is here to guide you.
                     <br />
                     <br />
                     From risk assessments and penetration testing to virtual CISO leadership and employee training, we provide tailored solutions to turn your challenges into strategic advantages. Let’s build a future-ready security posture together.

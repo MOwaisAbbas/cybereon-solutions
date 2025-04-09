@@ -20,11 +20,11 @@ export interface ServiceData {
 }
 
 // Corrected ServiceProps with specific params type
-type ServiceProps = {
+interface PageProps {
     params: { service: string }; // Changed to specific key
 }
 
-export async function generateMetadata({ params }: ServiceProps) {
+export async function generateMetadata({ params }: PageProps) {
     const service: ServiceData | undefined = SERVICES.find(elem => elem.path === `/service/${params.service}`);
 
     return {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: ServiceProps) {
     };
 }
 
-const Service = ({ params }: ServiceProps) => {
+const Service = ({ params }: PageProps) => {
     const service: ServiceData | undefined = SERVICES.find(elem => elem.path === `/service/${params.service}`);
 
     if (!service) {

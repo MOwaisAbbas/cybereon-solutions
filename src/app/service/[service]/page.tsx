@@ -19,22 +19,27 @@ export interface ServiceData {
     cta: string;
 }
 
-export async function generateMetadata({ params }: { params: { service: string } }) {
-    const service: ServiceData | undefined = SERVICES.find(elem => elem.path === `/service/${params.service}`);
+export async function generateMetadata({ params }: { params: Promise<{ service: string }> }) {
+
+    const { service } = await params
+
+    const filteredService: ServiceData | undefined = SERVICES.find(elem => elem.path === `/service/${service}`);
 
     return {
-        title: `${service?.name} | CyberEon Solutions` || 'Service Not Found',
-        description: `${service?.description} | CyberEon Solutions` || 'Requested service does not exist',
+        title: `${filteredService?.name} | CyberEon Solutions` || 'Service Not Found',
+        description: `${filteredService?.description} | CyberEon Solutions` || 'Requested service does not exist',
         alternates: {
-            canonical: `/services/${params.service}`
+            canonical: `/services/${service}`
         }
     };
 }
 
-const Service = ({ params }: { params: { service: string } }) => {
-    const service: ServiceData | undefined = SERVICES.find(elem => elem.path === `/service/${params.service}`);
+const Service = async ({ params }: { params: Promise<{ service: string }> }) => {
+    const { service } = await params
 
-    if (!service) {
+    const filteredService: ServiceData | undefined = SERVICES.find(elem => elem.path === `/service/${service}`);
+
+    if (!filteredService) {
         return (
             <Wrapper>
                 <section className="min-h-[50vh] grid place-items-center">
@@ -46,9 +51,9 @@ const Service = ({ params }: { params: { service: string } }) => {
 
     return (
         <Wrapper>
-            <ServiceIntro name={service.name} subHeading={service.subHeading} description={service.description} />
-            <ServiceComponent service={service} />
-            <CTA outcome={service.outcome} cta={service.cta} />
+            <ServiceIntro name={filteredService.name} subHeading={filteredService.subHeading} description={filteredService.description} />
+            <ServiceComponent service={filteredService} />
+            <CTA outcome={filteredService.outcome} cta={filteredService.cta} />
             <ContactUsForm />
             <NewsLetter />
         </Wrapper>

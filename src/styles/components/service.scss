@@ -20,9 +20,11 @@ section.ser-sec {
             color: $secondary;
             text-decoration: underline;
             text-transform: uppercase;
+            margin-top: 1rem;
         }
 
         >p {
+            margin-top: 0.5rem;
             text-transform: uppercase;
             font-family: var(--font-montserrat);
             font-size: max(16px, 1vw);

@@ -1,0 +1,50 @@
+aside.admin-sidebar {
+    height: 100%;
+    min-width: fit-content;
+    min-width: 200px;
+    display: flex;
+    padding-block: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    background: darken($primary, 5%);
+    transition: all 0.5s;
+    box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px;
+
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        width: 90%;
+        padding: 0.5rem;
+        border-radius: 0px 20px 20px 0px;
+
+        &.active {
+            background: $gradient-p;
+
+        }
+
+
+        span {
+            color: $primary-text;
+            font-family: var(--font-montserrat);
+        }
+    }
+
+
+
+
+
+
+    @media (max-width : 768px) {
+
+        width: 3.5rem;
+        min-width: fit-content;
+
+        a>span.name {
+            display: none;
+        }
+    }
+
+}

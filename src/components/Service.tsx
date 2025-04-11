@@ -1,6 +1,18 @@
-import { ServiceData } from "@/app/service/[service]/page";
 import Image from "next/image";
 import React from "react";
+
+export interface ServiceData {
+    name: string;
+    path: string;
+    subHeading: string;
+    description: string;
+    features: {
+        title: string;
+        detail: string;
+    }[];
+    outcome: string;
+    cta: string;
+}
 
 const ServiceComponent = ({ service }: { service: ServiceData }) => {
     let IMAGE: string = "/Advisory.svg";

@@ -1,10 +1,10 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import "@/styles/index.scss";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
-import Footer from "../components/Footer";
-import "./globals.css";
+import "../globals.css";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 });
 
 const conthrax = localFont({
-  src: "../../public/fonts/conthrax-sb.ttf",
+  src: "../../../public/fonts/conthrax-sb.ttf",
   variable: "--font-conthrax",
   display: 'swap',
 })

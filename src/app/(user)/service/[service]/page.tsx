@@ -1,23 +1,12 @@
 import CTA from "@/components/CTA";
 import NewsLetter from "@/components/NewsLetter";
-import ServiceComponent from "@/components/Service";
+import ServiceComponent, { ServiceData } from "@/components/Service";
 import Wrapper from "@/components/Wrapper";
 import SERVICES from "@/data/services.json";
 import ContactUsForm from "@/views/ContactUs";
 import ServiceIntro from "@/views/ServiceIntro";
 
-export interface ServiceData {
-    name: string;
-    path: string;
-    subHeading: string;
-    description: string;
-    features: {
-        title: string;
-        detail: string;
-    }[];
-    outcome: string;
-    cta: string;
-}
+
 
 export async function generateMetadata({ params }: { params: Promise<{ service: string }> }) {
 

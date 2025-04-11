@@ -13,7 +13,7 @@ const ServiceIntro = ({ name, subHeading, description }: ServiceIntroProps) => {
         <section className='about-sec'>
             <div className='content-box'>
                 <p>{name}</p>
-                <h2>{subHeading}</h2>
+                <h2 style={{ marginBlock: '0.5rem' }}>{subHeading}</h2>
                 <p className="desc">
                     {description}
                 </p>

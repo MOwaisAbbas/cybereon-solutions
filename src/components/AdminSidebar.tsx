@@ -1,7 +1,8 @@
 "use client"
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { HiOutlineMailOpen } from 'react-icons/hi';
+import { MdLogout } from 'react-icons/md';
 import { RiNewspaperLine } from 'react-icons/ri';
 
 const navItems = [
@@ -10,8 +11,13 @@ const navItems = [
 ];
 
 export default function AdminSidebar() {
-
+    const router = useRouter();
     const path = usePathname()
+
+    const handleLogout = async () => {
+        await fetch('/api/logout');
+        router.push('/'); // or wherever you want to redirect
+    };
 
     return (
         <aside className="admin-sidebar">
@@ -26,6 +32,12 @@ export default function AdminSidebar() {
                 </Link>
             ))
             }
+            <div
+                onClick={handleLogout}
+            >
+                <span><MdLogout size={22} /></span>
+                <span className='name'>Logout</span>
+            </div>
         </aside >
     );
 }

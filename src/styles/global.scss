@@ -7,6 +7,42 @@
 body {
   background-color: $primary;
   color: $primary-text;
+
+
+  // WebKit (Chrome, Safari, Edge)
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $primary;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary;
+    border-radius: 10px;
+    border: 1px solid $primary-text;
+  }
+}
+
+.customize-scrollbar {
+
+  // WebKit (Chrome, Safari, Edge)
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $primary;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary;
+    border-radius: 10px;
+    border: 1px solid $primary-text;
+  }
 }
 
 section {

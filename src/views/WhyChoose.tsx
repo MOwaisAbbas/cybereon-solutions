@@ -1,6 +1,8 @@
 "use client"
+import PopupForm from '@/components/PopupForm';
 import { goToSection } from '@/lib/function';
 import Image from 'next/image';
+import { useState } from 'react';
 
 
 type Point = {
@@ -45,9 +47,11 @@ const points: Point[] = [
 
 
 const WhyChoose = () => {
-    //choice-illustration.svg
+    const [open, setOpen] = useState<boolean>(false)
+
     return (
         <section className="why-choose">
+            <PopupForm open={open} setOpen={setOpen} />
             <div className='img-box'>
                 <Image
                     src="/choice-illustration.svg"
@@ -87,7 +91,7 @@ const WhyChoose = () => {
                     <button onClick={() => goToSection('contact-us')}>
                         Get in Touch
                     </button>
-                    <button className='active'>
+                    <button onClick={() => setOpen(true)} className='active'>
                         Book a Consultation
                     </button>
                 </div>

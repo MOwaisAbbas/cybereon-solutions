@@ -4,8 +4,14 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
     const body = await request.json();
-    const response = NextResponse.json({ success: true });
-    response.cookies.set('role', body.role || 'user');
 
-    return response;
+    const { email, password, role = 'user' } = body;
+
+    if (process.env.admin_email === email && process.env.admin_password === password) {
+        const response = NextResponse.json({ success: true });
+        response.cookies.set('role', role, { path: '/' });
+        return response;
+    }
+
+    return NextResponse.json({ success: false, message: 'Invalid credentials' }, { status: 401 });
 }

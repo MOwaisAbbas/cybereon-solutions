@@ -105,6 +105,13 @@ div.login-from {
             }
         }
 
+        .forget-password {
+            color: $primary;
+            text-decoration: underline;
+            text-align: right;
+            cursor: pointer;
+        }
+
         .submit-button {
             font-family: var(--font-montserrat);
             border-radius: 100px;

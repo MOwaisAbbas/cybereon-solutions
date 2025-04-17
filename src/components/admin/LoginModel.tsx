@@ -2,16 +2,15 @@
 
 import axios from 'axios';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function LoginModal({ onLoginSuccess }: { onLoginSuccess: () => void }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
     const [loading, setLoading] = useState(false)
 
     const login = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError(''); // Clear previous errors
         setLoading(true)
         try {
             const res = await axios.post('/api/login', {
@@ -21,17 +20,17 @@ export default function LoginModal({ onLoginSuccess }: { onLoginSuccess: () => v
             });
 
             if (res?.data?.success) {
-                console.log('Login success');
+                toast.success("Login Successful")
                 onLoginSuccess(); // Uncomment if you handle successful login
             } else {
-                setError('Invalid email or password');
+                toast.error('Invalid email or password');
             }
             setLoading(false)
         } catch (err: any) {
             if (err.response?.data?.message) {
-                setError(err.response.data.message);
+                toast.error(err.response.data.message);
             } else {
-                setError('An unexpected error occurred. Please try again.');
+                toast.error('An unexpected error occurred. Please try again.');
             }
             setLoading(false)
         }
@@ -49,16 +48,15 @@ export default function LoginModal({ onLoginSuccess }: { onLoginSuccess: () => v
                     <div className="form-group">
                         <label htmlFor="name">Email</label>
                         <input type="email" id="name" value={email} onChange={(e) => setEmail(e.target.value)}
-                            required />
+                        />
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="email">Password</label>
                         <input type="password" id="email" value={password} onChange={(e) => setPassword(e.target.value)}
-                            required />
+                        />
                     </div>
 
-                    <p className='text-red-500 text-center'>{error}</p>
                     <button type="submit" disabled={loading} className="submit-button active">
                         {loading ? "Loading..." : "Login"}
                     </button>

@@ -7,6 +7,10 @@ export async function POST(request: Request) {
 
     const { email, password, role = 'user' } = body;
 
+    if (!password || !email) {
+        return NextResponse.json({ success: false, message: 'All fields are required' }, { status: 400 });
+    }
+
     if (process.env.admin_email === email && process.env.admin_password === password) {
         const response = NextResponse.json({ success: true });
         response.cookies.set('role', role, { path: '/' });

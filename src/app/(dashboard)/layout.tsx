@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import { cookies } from "next/headers";
+import { Toaster } from "react-hot-toast";
 import "../globals.css";
 
 const montserrat = Montserrat({
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body className={`${montserrat.variable} ${conthrax.variable}  antialiased`}>
+                <Toaster />
                 <AuthWrapper isAuthenticated={role === 'admin'}>
                     <Header />
                     <Wrapper>

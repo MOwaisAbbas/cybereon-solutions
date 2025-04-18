@@ -1,0 +1,146 @@
+$transition-time: 0.3s;
+
+div.login-from {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn $transition-time ease-in-out;
+
+
+    .modal-content {
+        background: $primary-text;
+        padding: 2rem;
+        border-radius: 8px;
+        position: relative;
+        width: 90%;
+        max-width: 500px;
+        height: 80%;
+        max-height: fit-content;
+        overflow-y: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        // Hide scrollbar for Chrome, Safari, and Opera
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        // Hide scrollbar for IE, Edge, and Firefox
+        -ms-overflow-style: none; // IE and Edge
+        scrollbar-width: none; // Firefox
+
+        @media (max-width: 480px) {
+            width: 95%;
+            padding: 1.5rem;
+        }
+
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: $primary;
+            transition: color $transition-time ease;
+
+            &:hover {
+                color: darken($primary, 20%);
+            }
+        }
+
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            h2 {
+                font-family: var(--font-conthrax);
+                text-transform: uppercase;
+                font-size: max(16px, 1vw);
+                margin: 0;
+                color: $primary;
+                text-align: center;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            label {
+                font-family: var(--font-montserrat);
+                font-weight: 500;
+                color: $primary;
+            }
+
+            input,
+            textarea {
+                font-family: var(--font-montserrat);
+                padding: 0.8rem;
+                border: 1px solid $primary;
+                border-radius: 10px;
+                font-size: 1rem;
+                transition: border-color $transition-time ease;
+                color: $primary;
+
+                &:focus {
+                    outline: none;
+                    border-color: $secondary;
+                    box-shadow: 0 0 0 2px rgba($secondary, 0.2);
+                }
+            }
+
+            textarea {
+                resize: none;
+            }
+        }
+
+        .forget-password {
+            color: $primary;
+            text-decoration: underline;
+            text-align: right;
+            cursor: pointer;
+        }
+
+        .submit-button {
+            font-family: var(--font-montserrat);
+            border-radius: 100px;
+            padding: 0.25rem 1.5rem;
+            border: 3px solid $primary-text;
+            font-size: 16px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.5s;
+
+
+            &.active {
+                background: $gradient-p;
+            }
+
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

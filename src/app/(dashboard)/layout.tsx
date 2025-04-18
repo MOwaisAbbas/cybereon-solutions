@@ -1,3 +1,4 @@
+import AuthWrapper from "@/components/admin/AuthWrapper";
 import AdminSidebar from "@/components/AdminSidebar";
 import Header from "@/components/Header";
 import Wrapper from "@/components/Wrapper";
@@ -5,6 +6,8 @@ import "@/styles/index.scss";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
+import { cookies } from "next/headers";
+import { Toaster } from "react-hot-toast";
 import "../globals.css";
 
 const montserrat = Montserrat({
@@ -24,17 +27,34 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+    const role = cookies()?.get('role')?.value;
     return (
         <html lang="en">
             <body className={`${montserrat.variable} ${conthrax.variable}  antialiased`}>
-                <Header />
-                <Wrapper>
-                    <div className="flex h-screen">
-                        <AdminSidebar />
-                        <main className="flex-1 overflow-auto p-4">{children}</main>
-                    </div>
+                <Toaster />
+                <AuthWrapper isAuthenticated={role === 'admin'}>
+                    <Header />
+                    <Wrapper>
+                        <div
+                            style={{
+                                height: 'calc(100vh - 100px)',
+                                display: 'flex',
+                            }}
+                            className="flex h-[calc(100vh-100px)]"
+                        >
+                            <AdminSidebar />
+                            <main className="flex-1 overflow-auto customize-scrollbar">
+                                <section >
 
-                </Wrapper>
+                                    {children}
+                                </section>
+
+                            </main>
+                        </div>
+
+                    </Wrapper>
+                </AuthWrapper>
             </body>
         </html>
     );

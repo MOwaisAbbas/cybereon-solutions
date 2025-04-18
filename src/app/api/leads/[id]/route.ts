@@ -3,10 +3,10 @@ import Newsletter from '@/models/newsletter.model';
 import { NextResponse } from 'next/server';
 
 // GET single newsletter subscription by ID
-export async function GET(_: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, context: { params: { id: string } }) {
     try {
         await dbConnect();
-        const newsletter = await Newsletter.findById(params.id);
+        const newsletter = await Newsletter.findById(context.params.id);
         if (!newsletter) {
             return NextResponse.json({ success: false, message: 'Newsletter subscription not found' }, { status: 404 });
         }
@@ -17,7 +17,7 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
 }
 
 // UPDATE newsletter subscription by ID
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, context: { params: { id: string } }) {
     try {
         const { email } = await request.json();
         if (!email) {
@@ -25,7 +25,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         }
 
         await dbConnect();
-        const updatedNewsletter = await Newsletter.findByIdAndUpdate(params.id, { email }, { new: true });
+        const updatedNewsletter = await Newsletter.findByIdAndUpdate(context.params.id, { email }, { new: true });
 
         if (!updatedNewsletter) {
             return NextResponse.json({ success: false, message: 'Newsletter subscription not found' }, { status: 404 });
@@ -38,10 +38,10 @@ export async function PUT(request: Request, { params }: { params: { id: string }
 }
 
 // DELETE newsletter subscription by ID
-export async function DELETE(_: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, context: { params: { id: string } }) {
     try {
         await dbConnect();
-        const deletedNewsletter = await Newsletter.findByIdAndDelete(params.id);
+        const deletedNewsletter = await Newsletter.findByIdAndDelete(context.params.id);
 
         if (!deletedNewsletter) {
             return NextResponse.json({ success: false, message: 'Newsletter subscription not found' }, { status: 404 });

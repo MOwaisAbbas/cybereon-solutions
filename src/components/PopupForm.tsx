@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -8,8 +8,6 @@ type PopupFormProps = {
 };
 
 const PopupForm = ({ open, setOpen }: PopupFormProps) => {
-    if (!open) return null;
-
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -17,6 +15,7 @@ const PopupForm = ({ open, setOpen }: PopupFormProps) => {
     });
 
     const [loading, setLoading] = useState(false);
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { id, value } = e.target;
@@ -31,22 +30,30 @@ const PopupForm = ({ open, setOpen }: PopupFormProps) => {
         setLoading(true);
 
         try {
-            const response = await axios.post("/api/leads", formData); // Replace with your actual API endpoint
+            const response = await axios.post("/api/leads", formData);
 
             if (response.data.success) {
                 toast.success("Form Submitted successfully!");
-                setOpen(false)
-                setFormData({ name: "", email: "", message: "" }); // Clear form fields
+                setOpen(false);
+                setFormData({ name: "", email: "", message: "" });
             } else {
                 toast.error("Failed to send the message. Please try again.");
             }
-        } catch (err) {
+        } catch (error: unknown) {
+            const axiosError = error as AxiosError<{ message: string }>;
 
-            toast.error(err?.response?.data?.message || "An error occurred while sending your message. Please try again.");
+            if (axiosError.response?.data?.message) {
+                toast.error(axiosError.response.data.message);
+            } else {
+                toast.error("An error occurred while sending your message. Please try again.");
+            }
         } finally {
             setLoading(false);
         }
     };
+
+
+    if (!open) return null;
 
     return (
         <div className="modal-overlay" onClick={() => setOpen(false)}>

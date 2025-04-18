@@ -9,6 +9,7 @@ export async function GET() {
         const newsletters = await Newsletter.find();
         return NextResponse.json({ success: true, newsletters });
     } catch (error) {
+        console.log(error)
         return NextResponse.json({ success: false, message: 'Failed to fetch newsletters' }, { status: 500 });
     }
 }

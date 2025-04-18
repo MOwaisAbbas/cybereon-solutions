@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import LoginModal from './LoginModel';
 
@@ -14,7 +14,6 @@ export default function AuthWrapper({
     const [showLogin, setShowLogin] = useState(!isAuthenticated);
 
     const router = useRouter();
-    const pathname = usePathname();
 
     const handleLoginSuccess = async () => {
         // After login, refresh the route to load authenticated layout

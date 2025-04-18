@@ -1,7 +1,8 @@
 
 interface DataTableProps {
     headers: string[];
-    rows: { [key: string]: any }[];
+    rows: Record<string, string | number>[];
+
 }
 
 const DataTable = ({

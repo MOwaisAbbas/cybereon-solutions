@@ -9,6 +9,7 @@ export async function GET() {
         const leads = await Lead.find();
         return NextResponse.json({ success: true, leads });
     } catch (error) {
+        console.log(error)
         return NextResponse.json({ success: false, message: 'Failed to fetch leads' }, { status: 500 });
     }
 }
@@ -27,6 +28,7 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ success: true, lead }, { status: 201 });
     } catch (error) {
+        console.log(error)
         return NextResponse.json({ success: false, message: 'Failed to create lead' }, { status: 500 });
     }
 }

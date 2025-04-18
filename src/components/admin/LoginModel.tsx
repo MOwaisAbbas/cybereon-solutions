@@ -1,6 +1,6 @@
 'use client';
 
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -11,7 +11,7 @@ export default function LoginModal({ onLoginSuccess }: { onLoginSuccess: () => v
 
     const login = async (e: React.FormEvent) => {
         e.preventDefault();
-        setLoading(true)
+        setLoading(true);
         try {
             const res = await axios.post('/api/login', {
                 role: 'admin',
@@ -20,20 +20,22 @@ export default function LoginModal({ onLoginSuccess }: { onLoginSuccess: () => v
             });
 
             if (res?.data?.success) {
-                toast.success("Login Successful")
+                toast.success("Login Successful");
                 onLoginSuccess(); // Uncomment if you handle successful login
             } else {
                 toast.error('Invalid email or password');
             }
-            setLoading(false)
-        } catch (err: any) {
-            if (err.response?.data?.message) {
-                toast.error(err.response.data.message);
+        } catch (err: unknown) {
+            const axiosError = err as AxiosError<{ message: string }>;
+            if (axiosError.response?.data?.message) {
+                toast.error(axiosError.response.data.message);
             } else {
                 toast.error('An unexpected error occurred. Please try again.');
             }
-            setLoading(false)
+        } finally {
+            setLoading(false);
         }
+
     };
 
 

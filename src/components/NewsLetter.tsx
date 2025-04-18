@@ -1,6 +1,6 @@
 "use client";
 
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -25,12 +25,19 @@ const NewsLetter = () => {
             } else {
                 toast.error(res.data.message || "Subscription failed.");
             }
-        } catch (err) {
-            toast.error("An error occurred. Please try again.");
+        } catch (error: unknown) {
+            const axiosError = error as AxiosError<{ message: string }>;
+
+            if (axiosError.response?.data?.message) {
+                toast.error(axiosError.response.data.message);
+            } else {
+                toast.error("An error occurred. Please try again.");
+            }
         } finally {
             setSubmitting(false);
         }
     };
+
 
     return (
         <section className="news-letter">

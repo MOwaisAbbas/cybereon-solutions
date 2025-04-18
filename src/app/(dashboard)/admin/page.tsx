@@ -6,8 +6,16 @@ import moment from "moment";
 import { useEffect, useMemo, useState } from "react";
 import * as XLSX from "xlsx";
 
+
+type Lead = {
+    name: string;
+    email: string;
+    message: string;
+    createdAt: string;
+}
+
 const Page = () => {
-    const [leads, setLeads] = useState<any[]>([]);
+    const [leads, setLeads] = useState<Lead[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     const headers = ['Sr', 'Name', 'Email', 'Message', 'Created At'];

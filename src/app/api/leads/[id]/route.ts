@@ -1,9 +1,9 @@
 import dbConnect from '@/lib/mongodb';
 import Newsletter from '@/models/newsletter.model';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 // GET single newsletter subscription by ID
-export async function GET(request: Request, context: { params: { id: string } }) {
+export async function GET(request: NextRequest, context: { params: { id: string } }) {
     try {
         await dbConnect();
         const newsletter = await Newsletter.findById(context.params.id);
@@ -17,7 +17,7 @@ export async function GET(request: Request, context: { params: { id: string } })
 }
 
 // UPDATE newsletter subscription by ID
-export async function PUT(request: Request, context: { params: { id: string } }) {
+export async function PUT(request: NextRequest, context: { params: { id: string } }) {
     try {
         const { email } = await request.json();
         if (!email) {
@@ -38,7 +38,7 @@ export async function PUT(request: Request, context: { params: { id: string } })
 }
 
 // DELETE newsletter subscription by ID
-export async function DELETE(request: Request, context: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, context: { params: { id: string } }) {
     try {
         await dbConnect();
         const deletedNewsletter = await Newsletter.findByIdAndDelete(context.params.id);

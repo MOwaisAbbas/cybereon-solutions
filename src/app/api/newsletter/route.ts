@@ -1,5 +1,7 @@
 import dbConnect from '@/lib/mongodb';
 import Newsletter from '@/models/newsletter.model';
+import { newsLetterMailContent } from '@/utils/constant';
+import sendEmail from '@/utils/email';
 import { NextResponse } from 'next/server';
 
 // GET all newsletters
@@ -25,6 +27,10 @@ export async function POST(request: Request) {
 
         await dbConnect();
         const newsletter = await Newsletter.create({ email });
+
+        await sendEmail(email, "Thanks to subscribe our newsletter.", newsLetterMailContent);
+        await sendEmail(process.env.EMAIL_USERNAME, 'Someone is follow our Newsletter!', `Email : ${email}`);
+
 
         return NextResponse.json({ success: true, newsletter }, { status: 201 });
     } catch (error) {

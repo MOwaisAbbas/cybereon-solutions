@@ -1,7 +1,0 @@
-{
-    "functions": {
-        "api/sendEmail.js": {
-            "maxDuration": 30
-        }
-    }
-}

@@ -13,7 +13,7 @@ export default async function sendEmail(email: string, subject: string, html: st
                 user: EMAIL_USERNAME,
                 pass: EMAIL_PASSWORD,
             },
-            secure: true,
+            secure: false,
         });
 
         await transporter.verify();

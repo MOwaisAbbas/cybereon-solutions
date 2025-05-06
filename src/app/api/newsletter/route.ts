@@ -28,11 +28,11 @@ export async function POST(request: Request) {
         await dbConnect();
         const newsletter = await Newsletter.create({ email });
 
-        await sendEmail(email, "Thanks to subscribe our newsletter.", newsLetterMailContent);
-        await sendEmail(process.env.EMAIL_USERNAME, 'Someone is follow our Newsletter!', `Email : ${email}`);
+        const clientEmail = await sendEmail(email, "Thanks to subscribe our newsletter.", newsLetterMailContent);
+        const emailSent = await sendEmail(process.env.EMAIL_USERNAME, 'Someone is follow our Newsletter!', `Email : ${email}`);
 
 
-        return NextResponse.json({ success: true, newsletter }, { status: 201 });
+        return NextResponse.json({ success: true, newsletter, clientEmail, emailSent }, { status: 201 });
     } catch (error) {
         console.log(error)
         return NextResponse.json({ success: false, message: 'Failed to subscribe Newsletter' }, { status: 500 });

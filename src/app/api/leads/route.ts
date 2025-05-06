@@ -5,26 +5,26 @@ import { NextResponse } from 'next/server';
 
 // GET all leads
 export async function GET() {
-    try {
-        await dbConnect();
-        const leads = await Lead.find();
-        return NextResponse.json({ success: true, leads });
-    } catch (error) {
-        console.log(error)
-        return NextResponse.json({ success: false, message: 'Failed to fetch leads' }, { status: 500 });
-    }
+  try {
+    await dbConnect();
+    const leads = await Lead.find();
+    return NextResponse.json({ success: true, leads });
+  } catch (error) {
+    console.log(error)
+    return NextResponse.json({ success: false, message: 'Failed to fetch leads' }, { status: 500 });
+  }
 }
 
 // CREATE a new lead
 export async function POST(request: Request) {
-    try {
-        const { name, email, message } = await request.json();
+  try {
+    const { name, email, message } = await request.json();
 
-        if (!name || !email || !message) {
-            return NextResponse.json({ success: false, message: 'All fields are required' }, { status: 400 });
-        }
+    if (!name || !email || !message) {
+      return NextResponse.json({ success: false, message: 'All fields are required' }, { status: 400 });
+    }
 
-        const HTMLcontent = `
+    const HTMLcontent = `
         <div style="background-color: #f9f9f9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 2rem;">
   <div style="max-width: 500px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
     
@@ -49,18 +49,18 @@ export async function POST(request: Request) {
 </div>
 
     `
-        await dbConnect();
-        const lead = await Lead.create({ name, email, message });
+    await dbConnect();
+    const lead = await Lead.create({ name, email, message });
 
 
-        await sendEmail(email, "Thanks for contacting us!", HTMLcontent);
-        await sendEmail(process.env.EMAIL_USERNAME, "New message from Contact Us form", HTMLcontent);
+    const clientEmail = await sendEmail(email, "Thanks for contacting us!", HTMLcontent);
+    const emailSent = await sendEmail(process.env.EMAIL_USERNAME, "New message from Contact Us form", HTMLcontent);
 
 
 
-        return NextResponse.json({ success: true, lead }, { status: 201 });
-    } catch (error) {
-        console.log(error)
-        return NextResponse.json({ success: false, message: 'Failed to create lead' }, { status: 500 });
-    }
+    return NextResponse.json({ success: true, lead, clientEmail, emailSent }, { status: 201 });
+  } catch (error) {
+    console.log(error)
+    return NextResponse.json({ success: false, message: 'Failed to create lead' }, { status: 500 });
+  }
 }

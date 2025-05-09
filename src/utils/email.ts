@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 type ErrorType = {
     message?: string;
@@ -8,7 +8,8 @@ type ErrorType = {
     responseCode?: number;
 };
 
-const { EMAIL_HOST, EMAIL_PORT, EMAIL_USERNAME, EMAIL_PASSWORD } = process.env;
+const resend = new Resend(process.env.RESEND_API_KEY);
+const FROM_EMAIL = process.env.EMAIL_USERNAME; // e.g. 'info@mydomain.com'
 
 export default async function sendEmail(
     email: string,
@@ -16,41 +17,27 @@ export default async function sendEmail(
     html: string
 ): Promise<boolean | ErrorType> {
     try {
-        const transporter = nodemailer.createTransport({
-            host: EMAIL_HOST,
-            port: Number(EMAIL_PORT),
-            auth: {
-                type: 'login',
-                user: EMAIL_USERNAME,
-                pass: EMAIL_PASSWORD,
-            },
-            secure: false,
-            tls: {
-                ciphers: 'SSLv3',
-            },
-        });
-
-        // await transporter.verify();
-
-        const mailOptions = {
-            from: EMAIL_USERNAME,
+        const response = await resend.emails.send({
+            from: FROM_EMAIL!,
             to: email,
             subject,
-            text: '',
             html,
-        };
+        });
 
-        await transporter.sendMail(mailOptions);
+        if (response.error) {
+            return {
+                message: response.error.message,
+                response: response.error.name,
+            };
+        }
+
         return true;
-    } catch (err) {
-        const error = err as Partial<ErrorType>;
-
-
+    } catch (err: any) {
         return {
-            message: error.message,
-            code: error.code,
-            response: error.response,
-            responseCode: error.responseCode,
+            message: err.message,
+            code: err.code,
+            response: err.response,
+            responseCode: err.responseCode,
         };
     }
 }
